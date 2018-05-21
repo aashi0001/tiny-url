@@ -43,6 +43,18 @@ class LinksController < ApplicationController
   end
 
 
+  def shortened
+    url = Link.find_by_short_url(params[:format])
+    if url.present?
+      counter = url.clicks + 1
+      url.update_attributes(:clicks => counter)
+      url.stats.create(platform: browser.platform.to_s, ip_address: request.remote_ip.to_s)
+      redirect_to url.original_url
+    else
+      flash[:notice] = "URL Cannot be Found"
+      redirect_to root_path
+    end
+  end
 
 
   def update
