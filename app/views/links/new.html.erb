@@ -1,0 +1,7 @@
+<h1>Lets Make your URL Short</h1>
+
+<div id="notice"><%= notice %></div>
+
+<%= render 'form', link: @link %>
+
+<%= button_to 'Please, Dont Leave Me😞', {:controller => "links", :action => "index", :link => @link,} , :method=>:get , class: "funny-btn" %>

@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>BIGGER is NOT Always Better...</h1>
+<h2>So Lets Make your URL Tiny..</h2>
+
+<br>
+
+<%= link_to 'Lets Get you One😄', new_link_path, class: "funny-btn" %>
+
+
+
+<br><br><br>
+<h2> People Prefer smaller Size, These days 😋</h2>
+<h3>Dont Believe us have a Look Below then 🤨</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Original url</th>
+      <th>Short url</th>
+      <th>Times Visited</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @links.each do |link| %>
+      <tr>
+        <td><%= link.original_url %></td>
+        <td><%= link_to "#{@host + '/' + link.short_url}", shortened_links_path(link.short_url) %></td>
+        <td><%= link.clicks %></td>
+        <td><%= link_to 'show stats', link_path(link) %></td>
+        <td><%= link_to 'Edit', edit_link_path(link) %></td>
+        <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
