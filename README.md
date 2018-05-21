@@ -1,24 +1,44 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
 
-* Ruby version
 
-* System dependencies
+##Application to shrink the URL 
 
-* Configuration
+```
+Rake db:create db:migrate
+```
 
-* Database creation
+## On macOS & Linux
 
-* Database initialization
+### Bundle Install & Run
+
+## cd into the project 
+
+## run following command
+
+
+## On Windows
+
+### Requirements
+
+* Ruby 1.9+ (https://rubyinstaller.org/)
+* Bundler (https://bundler.io/)
+
+### Install & Run
+
+```
+bundle install
+rails s
+```
+
+
 
 * How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+###cd into app and run rspec
 
-* Deployment instructions
 
-* ...
+## Want to learn more?
+
+Contact Me at aashish.khullar92@gmail.com
