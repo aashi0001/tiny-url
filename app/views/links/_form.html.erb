@@ -1,4 +1,4 @@
-<%= form_for(link) do |f| %>
+<%= form_for(link, html: {class: "form-horizontal"}) do |f| %>
   <% if link.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(link.errors.count, "error") %> prohibited this link from being saved:</h2>
@@ -12,11 +12,11 @@
   <% end %>
 
   <div class="field">
-    <h3> Enter the url to be shortned: </h3>
-    <%= f.text_field :original_url %>
-  </div>
+    <h2> Enter the url to be shortned: </h2>
+    <%= f.text_field :original_url, class: 'inpput-large'%>
+  </div><br>
 
   <div class="actions">
-    <%= f.submit "Hit Me Up" %>
-  </div>
+    <%= f.submit "Hit Me Up", :class => "btn btn-success" %><br>
+  </div><br>
 <% end %>

@@ -1,1 +1,31 @@
-<%= @link.stats.each{|stat| puts stat} %>
+<table class="table table-hover">
+    <thead>
+      <tr>
+      	<th class="table-text">S.No</th>
+        <th class="table-text">Original Link</th>
+        <th class="table-text">Short URL</th>
+        <th class="table-text">Platform</th>
+        <th class="table-text">Client IP</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @link.stats.each_with_index do|stat,index| %>
+      <tr>
+      	<td><%= index + 1 %></td>
+        <td><%= @link.original_url %></td>
+        <td><%= "#{base_url(@link.short_url)}" %></td>
+        <td><%= stat.platform %></td>
+        <td><%= stat.ip_address %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+<%= button_to 'Lets Take you Back 😊', {:controller => "links", :action => "index", :link => @link,} , :method=>:get , class: "funny-btn" %>
+
+
+  <style>
+  .table-text{
+    text-align: center;
+  }
+</style>

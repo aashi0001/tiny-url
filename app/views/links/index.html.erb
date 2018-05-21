@@ -11,14 +11,14 @@
 
 <br><br><br>
 <h2> People Prefer smaller Size, These days 😋</h2>
-<h3>Dont Believe us have a Look Below then 🤨</h3>
-<table>
+<h3>Dont Believe us have a Look Below then 🤨</h3><br><br><br>
+<table class="table table-condensed">
   <thead>
     <tr>
-      <th>Original url</th>
-      <th>Short url</th>
-      <th>Times Visited</th>
-      <th colspan="3"></th>
+      <th class="table-text">Original url</th>
+      <th class="table-text">Shortened url</th>
+      <th class="table-text">Times Visited</th>
+      <th class="table-text" colspan="3">Actions Available</th>
     </tr>
   </thead>
 
@@ -26,7 +26,7 @@
     <% @links.each do |link| %>
       <tr>
         <td><%= link.original_url %></td>
-        <td><%= link_to "#{@host + '/' + link.short_url}", shortened_links_path(link.short_url) %></td>
+        <td><%= link_to "#{base_url(link.short_url)}", shortened_links_path(link.short_url), target: "_blank"  %></td>
         <td><%= link.clicks %></td>
         <td><%= link_to 'show stats', link_path(link) %></td>
         <td><%= link_to 'Edit', edit_link_path(link) %></td>
@@ -36,3 +36,9 @@
   </tbody>
 </table>
 
+
+<style>
+  .table-text{
+    text-align: center;
+  }
+</style>
