@@ -2,7 +2,7 @@
 
 
 
-##Application to shrink the URL 
+## Application to shrink the URL 
 
 ### Requirements
 * Ruby 1.9+ (https://rubyinstaller.org/)
