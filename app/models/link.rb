@@ -21,5 +21,26 @@ class Link < ApplicationRecord
 		end
 	end
 
-	
+	def find_duplicate
+	  Link.find_by_censor_url(self.censor_url)
+	end
+
+	def new_url?
+	  find_duplicate.nil?
+	end
+
+	def censor
+	  self.original_url.strip!
+	  self.censor_url = self.original_url.downcase.gsub(/(https?:\/\/)|(www\.)/, "")
+	  self.censor_url = "http://#{self.censor_url}" 
+	end
+
+
+	private
+
+	def smart_add_url_protocol
+	  unless self.original_url[/\Ahttp:\/\//] || self.original_url[/\Ahttps:\/\//]
+	    self.original_url = "http://#{self.original_url}"
+	  end
+	end
 end
